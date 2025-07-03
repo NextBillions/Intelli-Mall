@@ -1,15 +1,5 @@
 # Intelli-Mall: Autonomous Commerce System
 
-## High-level view of the components
-
-![Intelli-Mall Architecture](https://github.com/50HJ/Intelli-Mall/assets/67067729/097cfc9d-8d45-48fc-afda-a052d03eb96a.png)
-
-## [View Tree Structure of IntelliMall](docs/ADL/0003-structure-of-intellimall.md)
-
-## Intelli-Mall AWS Architecture
-
-![Intelli-Mall AWS Architecture](https://github.com/50HJ/Intelli-Mall/assets/67067729/176f52d6-8bf4-4bb4-bdb6-15ea9ef5a836.png)
-
 ## How to start the application
 
 Starting the monolith:
@@ -40,17 +30,6 @@ cd baskets && go generate
 
 For more info on using `buf`, please go to [buf tutorial](https://buf.build/docs/tutorials/getting-started-with-buf-cli#clone-the-git-repository)
 
-## Docker Compose with either a monolith or microservices
-
-![Screenshot of Intelli-Mall](https://github.com/50HJ/Intelli-Mall/assets/67067729/dec1b2ff-57a5-4966-80b8-7a1e74ad748f.png)
-
-## Swagger UI
-
-![Screenshot of Intelli-Mall](https://github.com/50HJ/Intelli-Mall/assets/67067729/1e4a4341-4d80-4161-b8a0-cd08b2c7712d.png)
-
-## The monitoring services
-
-![Screenshot of Intelli-Mall](https://github.com/50HJ/Intelli-Mall/assets/67067729/5f0d72d1-eb6a-4ce4-b842-2f6d4bc50744.png)
 
 ## Use `/cmd/busywork` to simulate several users making requests to perform several different activities:
 
@@ -94,41 +73,18 @@ You can increase the number of clients by passing in the -clients=n flag, with a
 
 Open http:// localhost:8081 in your browser to open Jaeger.
 
-![Screenshot of Intelli-Mall](https://github.com/50HJ/Intelli-Mall/assets/67067729/9d1c3d63-da20-46ae-ad69-396fbbb7c350 "Screenshot of Intelli-Mall")
-
-## Traces that involved the baskets service
-
-![Screenshot of the Jaeger UI for tracing](https://github.com/50HJ/Intelli-Mall/assets/67067729/8bed563c-b362-425a-8532-b324a8a1ad8b "Screenshot of the Jaeger UI for tracing")
-
-## Viewing the monitoring data
-
-![Screenshot of the Jaeger UI for tracing](https://github.com/50HJ/Intelli-Mall/assets/67067729/fe008c04-aca7-4189-a204-3408484e6d02 "Screenshot of the Jaeger UI for tracing")
-
-Clicking on one of the rows in the graph will provide you with additional details. 
 
 ## The Prometheus UI
 
-We also have the metrics to check out in Prometheus at `http://localhost:9090`
+check out in Prometheus at `http://localhost:9090`
 
-![Screenshot of received messages counts for the cosec service](https://github.com/50HJ/Intelli-Mall/assets/67067729/231d151b-cd4c-4978-b2eb-519452832f44 "Screenshot of received messages counts for the cosec service")
-
-## Searching for the received messages counts for the cosec service
-
-![Screenshot of received messages counts for the cosec service](https://github.com/50HJ/Intelli-Mall/assets/67067729/790cdfd8-405a-4d66-a79d-ee5670724be0 "Screenshot of received messages counts for the cosec service")
 
 ## Grafana UI for more compelling intepretation - Intelli Mall App Dashboard
 
 Opening `localhost:3000/` and then browsing for dashboards will show the two dashboards that are installed under the intellimall folder.
 
-![Screenshot of OpenTelemetry Collector dashboard](https://github.com/50HJ/Intelli-Mall/assets/67067729/03e64fbc-6eff-40ee-a89b-9e3d8a13771f "Screenshot of OpenTelemetry Collector dashboard")
-
 How much activity you see in the dashboard will depend on how many clients you have running in the busywork application and the random interactions that the clients are performing.
 
-## OpenTelemetry Collector dashboard
-
-![Screenshot of OpenTelemetry Collector dashboard](https://github.com/50HJ/Intelli-Mall/assets/67067729/7393a06d-de86-4575-b0d6-2359a5deb957 "Screenshot of OpenTelemetry Collector dashboard")
-
-Details about how much work the collector is doing.
 
 ## How does Terminal reflect the events:
 
@@ -139,27 +95,6 @@ grafana        | logger=live t=2023-09-20T12:18:33.088289544Z level=info msg="In
 prometheus     | ts=2023-09-20T13:04:51.975Z caller=compact.go:519 level=info component=tsdb msg="write block" mint=1695204291419 maxt=1695211200000 ulid=01HASB306VTMA1K6NRP5ZCCEQ3 duration=44.237792ms
 ```
 
-## Business logic flow
-
-### read after write
-
-![read after write](docs/Diagrams/read_after_write.png)
-
-### transactions
-
-![transactions](docs/Diagrams/transactions.png)
-
-### notification ordering
-
-![notification ordering](docs/Diagrams/notification_ordering.png)
-
-### adding items
-
-![adding items](docs/Diagrams/adding_items.png)
-
-### async pay invoice
-
-![async pay invoice](docs/Diagrams/async_pay_invoice.png)
 
 
 ### create order with domain events
